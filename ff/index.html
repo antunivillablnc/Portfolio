@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Feud</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navcontainer">
+        <h1>Family Feud Game</h1>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="intro.html">Intro</a></li>
+            <li><a href="rules.html">Rules</a></li>
+        </ul>
+    </nav>
+
+    <audio id="backgroundMusic" autoplay loop>
+        <source src="bgsong.mp3" type="audio/mp3">
+        
+    </audio>
+
+    <div class="game_container" id="gameContainer">
+        <h2>Category: Gulay sa Bahay Kubo</h2>
+        <ul id="answerList">
+            <li data-answer="Sitaw"><span class="answer">Sitaw</span> <span class="points">50</span></li>
+            <li data-answer="Patani"><span class="answer">Patani</span> <span class="points">38</span></li>
+            <li data-answer="Patola"><span class="answer">Patola</span> <span class="points">20</span></li>
+            <li data-answer="Kalabasa"><span class="answer">Kalabasa</span> <span class="points">17</span></li>
+        </ul>
+    </div>
+
+    <!-- Add the turn indicator -->
+<h2 id="turnIndicator" class="turn-indicator">Current Turn: Click The Decide Button</h2> <!-- This line indicates the current turn -->
+
+    <div class="input_form">
+        <button id="decideTurnButton" onclick="decideFirstTurn()">Play</button>
+        <h2>Submit Your Answers</h2>
+        <div class="team_inputs">
+            <div class="team_input">
+                <h3>Team 1</h3>
+                <label for="team1Name">Team Name:</label>
+                <input type="text" id="team1Name" placeholder="Enter Team 1's name" required>
+                <form id="team1Form" onsubmit="return checkAnswer('team1');">
+                    <label for="team1Answer">Answer:</label>
+                    <input type="text" id="team1Answer" name="team1Answer" placeholder="Enter Team 1's answer here" required>
+                    <button type="submit" id="team1Submit">Submit</button>
+                </form>
+            </div>
+    
+            <div class="team_input">
+                <h3>Team 2</h3>
+                <label for="team2Name">Team Name:</label>
+                <input type="text" id="team2Name" placeholder="Enter Team 2's name" required>
+                <form id="team2Form" onsubmit="return checkAnswer('team2');">
+                    <label for="team2Answer">Answer:</label>
+                    <input type="text" id="team2Answer" name="team2Answer" placeholder="Enter Team 2's answer here" required>
+                    <button type="submit" id="team2Submit">Submit</button>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Reset Button -->
+        
+        <button id="resetButton" onclick="resetGame()">Reset Game</button>
+    </div>
+    
+
+
+    <div id="submittedAnswers" class="submitted-answers">
+        <h2>Submitted Answers</h2>
+        <ul id="answersList">
+            <!-- Team answers will be displayed here -->
+        </ul>
+    </div>
+
+
+    
+    <script src="script.js"></script> <!-- Link to the external JavaScript file -->
+</body>
+</html>
